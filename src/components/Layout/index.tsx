@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Container, Center } from "@chakra-ui/react";
+import { Container, Box } from "@mui/material";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -8,11 +8,15 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div>
       <Navbar />
-      <Container maxW="container.md">
+      <Container maxWidth="md">
         <PerfectScrollbar>
-          <Center height="calc(100vh - 112px)" flexDirection="column">
+          <Box
+            sx={{
+              height: "calc(100vh - 112px)",
+            }}
+          >
             {children}
-          </Center>
+          </Box>
         </PerfectScrollbar>
         <Footer />
       </Container>

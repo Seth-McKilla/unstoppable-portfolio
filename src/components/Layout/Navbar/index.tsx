@@ -1,11 +1,10 @@
-import dynamic from "next/dynamic";
-import { Flex, Button } from "@chakra-ui/react";
-const uauth = dynamic(() => import("../../../uauth"), { ssr: false });
+import { AppBar, Toolbar, Button, Box } from "@mui/material";
+import uauth from "../../../uauth";
 
 const Navbar = () => {
   const handleClick = async () => {
     try {
-      const authorization = await uauth.login();
+      const authorization = await uauth?.login();
       console.log(authorization);
     } catch (error) {
       console.error(error);
@@ -13,16 +12,14 @@ const Navbar = () => {
   };
 
   return (
-    <Flex
-      as="nav"
-      justifyContent="flex-end"
-      padding={2}
-      backgroundColor="gray.200"
-    >
-      <Button colorScheme="purple" onClick={handleClick}>
-        Login with Unstoppable
-      </Button>
-    </Flex>
+    <AppBar position="static">
+      <Toolbar>
+        <Box sx={{ flexGrow: 1 }} />
+        <Button variant="contained" color="secondary" onClick={handleClick}>
+          Login with Unstoppable
+        </Button>
+      </Toolbar>
+    </AppBar>
   );
 };
 
