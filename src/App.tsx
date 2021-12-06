@@ -1,20 +1,17 @@
 import React from "react";
-import { Typography } from "@mui/material";
-import { Layout } from "./components";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+// Pages
+import Home from "./Home";
+import Profile from "./Profile";
+
+export default function App() {
   return (
-    <div>
-      <Layout>
-        <Typography variant="h3" align="center" pt={12}>
-          Welcome to the Unstoppable Portfolio
-        </Typography>
-        <Typography variant="h6" align="center">
-          Login with the Unstoppable Login button in the top right to continue
-        </Typography>
-      </Layout>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;
