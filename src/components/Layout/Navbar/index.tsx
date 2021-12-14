@@ -1,29 +1,35 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppBar, Toolbar, Button, Box } from "@mui/material";
 import uauth from "../../../uauth";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const [redirectTo, setRedirectTo] = useState<string>("");
 
   const handleClick = async () => {
     try {
       return await uauth?.login();
     } catch (error) {
-      return console.error(error);
+      console.error(error);
     }
   };
 
   useEffect(() => {
     (async () => {
       try {
-        await uauth?.loginCallback();
-        return navigate("/profile");
+        const loginCallback = await uauth?.loginCallback();
+        console.log("loginCallback ->", loginCallback);
+        setRedirectTo("/profile");
       } catch (error) {
-        return console.error(error);
+        console.error(error);
       }
     })();
   }, [navigate]);
+
+  useEffect(() => {
+    if (redirectTo) return navigate(redirectTo);
+  }, [navigate, redirectTo]);
 
   return (
     <AppBar position="static">
