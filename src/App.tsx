@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import uauth from "./uauth";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import { AppBar, Box, Toolbar, Button, LinearProgress } from "@mui/material";
-import {type User} from "./types";
+import { User } from "./types";
 
 // Components
 import { Footer, Home, Profile } from "./components";
@@ -35,6 +35,7 @@ export default function App() {
       setError(error.message);
     }
     setLoading(false);
+    return window.location.reload();
   };
 
   const handleLogout = async () => {
@@ -46,6 +47,7 @@ export default function App() {
       setError(error.message);
     }
     setLoading(false);
+    return window.location.reload();
   };
 
   const renderContent = () => {
@@ -71,13 +73,17 @@ export default function App() {
         <Toolbar>
           <Box sx={{ flexGrow: 1 }} />
           {user ? (
-          <Button variant="contained" color="secondary" onClick={handleLogin}>
-            Login with Unstoppable
-          </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleLogout}
+            >
+              Logout
+            </Button>
           ) : (
-            <Button variant="contained" color="secondary" onClick={handleLogout}>
-            Logout
-          </Button>
+            <Button variant="contained" color="secondary" onClick={handleLogin}>
+              Login with Unstoppable
+            </Button>
           )}
         </Toolbar>
       </AppBar>
