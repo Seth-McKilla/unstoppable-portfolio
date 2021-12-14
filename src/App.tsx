@@ -1,41 +1,54 @@
 import React, { useEffect, useState } from "react";
 import uauth from "./uauth";
-import { AppBar, Toolbar, Button, Box, LinearProgress } from "@mui/material";
+import PerfectScrollbar from "react-perfect-scrollbar";
+import { AppBar, Box, Toolbar, Button, LinearProgress } from "@mui/material";
+import {type User} from "./types";
 
 // Components
 import { Footer, Home, Profile } from "./components";
 
 export default function App() {
-  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [user, setUser] = useState<User>();
   const [error, setError] = useState(null);
-
-  const handleClick = async () => {
-    try {
-      return await uauth?.login();
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   useEffect(() => {
     (async () => {
+      setLoading(true);
       try {
-        const loginCallback = await uauth?.loginCallback();
-        console.log("loginCallback ->", loginCallback);
-      } catch (error) {
-        console.error(error);
+        const user = await uauth?.user();
+        setUser(user);
+      } catch (error: any) {
+        setError(error.message);
       }
+      return setLoading(false);
     })();
   }, []);
+
+  const handleClick = async () => {
+    setLoading(true);
+    try {
+      await uauth?.loginWithPopup();
+      const user = await uauth?.user();
+      setUser(user);
+    } catch (error: any) {
+      setError(error.message);
+    }
+    setLoading(false);
+  };
 
   const renderContent = () => {
     if (loading) {
       return <LinearProgress />;
     }
 
+    if (error) {
+      console.error(error);
+      return <Home />;
+    }
+
     if (user) {
-      return <Profile />;
+      return <Profile user={user} />;
     }
 
     return <Home />;
@@ -51,9 +64,9 @@ export default function App() {
           </Button>
         </Toolbar>
       </AppBar>
-
-      {renderContent()}
-
+      <PerfectScrollbar>
+        <Box sx={{ height: "calc(100vh - 112px)" }}>{renderContent()}</Box>
+      </PerfectScrollbar>
       <Footer />
     </>
   );

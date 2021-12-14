@@ -1,15 +1,25 @@
 import React from "react";
 import { Typography } from "@mui/material";
+import { type User } from "../../types";
 
-export default function Profile() {
+type Props = {
+  user: User;
+};
+
+export default function Profile(props: Props) {
+  const { user } = props;
+
   return (
-    <div>
+    <>
       <Typography variant="h3" align="center" pt={12}>
         Profile Page
       </Typography>
       <Typography variant="h6" align="center">
         Welcome to the profile page
       </Typography>
-    </div>
+      <Typography variant="h6" align="center">
+        {user?.sub}
+      </Typography>
+    </>
   );
 }
