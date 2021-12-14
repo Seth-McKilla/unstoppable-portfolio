@@ -18,7 +18,7 @@ export default function Profile(props: Props) {
         Welcome to the profile page
       </Typography>
       <Typography variant="h6" align="center">
-        {user?.sub}
+        {user?.wallet_address}
       </Typography>
     </>
   );

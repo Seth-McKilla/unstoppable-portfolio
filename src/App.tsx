@@ -25,12 +25,23 @@ export default function App() {
     })();
   }, []);
 
-  const handleClick = async () => {
+  const handleLogin = async () => {
     setLoading(true);
     try {
       await uauth?.loginWithPopup();
       const user = await uauth?.user();
       setUser(user);
+    } catch (error: any) {
+      setError(error.message);
+    }
+    setLoading(false);
+  };
+
+  const handleLogout = async () => {
+    setLoading(true);
+    try {
+      await uauth?.logout();
+      setUser(undefined);
     } catch (error: any) {
       setError(error.message);
     }
@@ -59,9 +70,15 @@ export default function App() {
       <AppBar position="static">
         <Toolbar>
           <Box sx={{ flexGrow: 1 }} />
-          <Button variant="contained" color="secondary" onClick={handleClick}>
+          {user ? (
+          <Button variant="contained" color="secondary" onClick={handleLogin}>
             Login with Unstoppable
           </Button>
+          ) : (
+            <Button variant="contained" color="secondary" onClick={handleLogout}>
+            Logout
+          </Button>
+          )}
         </Toolbar>
       </AppBar>
       <PerfectScrollbar>
