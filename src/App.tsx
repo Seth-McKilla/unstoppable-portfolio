@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import uauth from "./uauth";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import { AppBar, Box, Toolbar, Button, LinearProgress } from "@mui/material";
-import { User } from "./types";
+import {
+  AppBar,
+  Box,
+  Container,
+  Toolbar,
+  Button,
+  LinearProgress,
+} from "@mui/material";
+import type { User } from "./types";
 
 // Components
 import { Footer, Home, Profile } from "./components";
@@ -69,7 +76,7 @@ export default function App() {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar>
         <Toolbar>
           <Box sx={{ flexGrow: 1 }} />
           {user ? (
@@ -87,9 +94,9 @@ export default function App() {
           )}
         </Toolbar>
       </AppBar>
-      <PerfectScrollbar>
-        <Box sx={{ height: "calc(100vh - 112px)" }}>{renderContent()}</Box>
-      </PerfectScrollbar>
+      <Container>
+        <PerfectScrollbar>{renderContent()}</PerfectScrollbar>
+      </Container>
       <Footer />
     </>
   );

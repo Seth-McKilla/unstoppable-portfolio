@@ -1,15 +1,27 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Typography, Container } from "@mui/material";
 
 export default function Home() {
   return (
-    <div>
-      <Typography variant="h3" align="center" pt={12}>
+    <Container
+      sx={{
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Typography variant="h3" align="center">
         Welcome to the Unstoppable Portfolio
       </Typography>
       <Typography variant="h6" align="center">
-        Login with the Unstoppable Login button in the top right to continue
+        View your ERC-20 token holdings with one simple login powered by
+        Unstoppable Domains.
       </Typography>
-    </div>
+      <Typography variant="h6" align="center">
+        <b>Login now using the button up there ↗</b>
+      </Typography>
+    </Container>
   );
 }
