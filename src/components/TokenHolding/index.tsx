@@ -63,7 +63,7 @@ export default function TokenHolding(props: Holding) {
             >
               {symbol}
             </Typography>
-            <Avatar sx={{ height: 30, width: 30 }}>
+            <Avatar sx={{ height: 25, width: 25, marginLeft: 2 }}>
               <a
                 href={`https://www.coingecko.com/en/coins/${coingecko}`}
                 target="__blank"

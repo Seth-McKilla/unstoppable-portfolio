@@ -33,7 +33,7 @@ export default function Profile(props: Props) {
             diff: data.ETH.price.diff,
             diff7d: data.ETH.price.diff7d,
             diff30d: data.ETH.price.diff30d,
-            coingecko: data.ETH.price.coingecko,
+            coingecko: "ethereum",
           };
 
           const holdings =
