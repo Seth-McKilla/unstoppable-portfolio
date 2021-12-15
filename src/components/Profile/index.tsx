@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Grid } from "@mui/material";
+import { Typography, Grid, Box } from "@mui/material";
 import type { User, Token, Holding } from "../../types";
-import { toUSD } from "../../utils";
-import { TokenHolding } from "..";
+import { toUSD, calcOverallDiffs } from "../../utils";
+import { TokenHolding, PriceDiffs } from "..";
 
 type Props = {
   user: User;
@@ -30,6 +30,9 @@ export default function Profile(props: Props) {
             image: "/images/eth.png",
             rate: data.ETH.price.rate,
             value: data.ETH.balance * data.ETH.price.rate,
+            diff: data.ETH.price.diff,
+            diff7d: data.ETH.price.diff7d,
+            diff30d: data.ETH.price.diff30d,
           };
 
           const holdings =
@@ -42,7 +45,7 @@ export default function Profile(props: Props) {
                   symbol,
                   image,
                   decimals,
-                  price: { rate },
+                  price: { rate, diff, diff7d, diff30d },
                 } = token.tokenInfo;
 
                 const balance = token.balance * Math.pow(10, +decimals * -1);
@@ -54,6 +57,9 @@ export default function Profile(props: Props) {
                   image,
                   rate,
                   value: balance * rate,
+                  diff,
+                  diff7d,
+                  diff30d,
                 };
               });
 
@@ -65,15 +71,29 @@ export default function Profile(props: Props) {
     }
   }, [wallet_address]);
 
+  const { diff, diff7d, diff30d } = holdings && calcOverallDiffs(holdings);
+
   return (
     <>
       <Typography variant="h3" align="center" gutterBottom>
         My Portfolio
       </Typography>
-      <Typography variant="h4" align="center" gutterBottom color="green">
-        Total Value:{" "}
-        {toUSD(holdings.reduce((acc, curr) => acc + curr.value, 0))}
-      </Typography>
+      <Box
+        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      >
+        <Typography variant="h4" align="center" gutterBottom color="green">
+          Total Value:{" "}
+          {toUSD(holdings.reduce((acc, curr) => acc + curr.value, 0))}
+        </Typography>
+        <Box
+          sx={{
+            width: 300,
+            marginBottom: 4,
+          }}
+        >
+          <PriceDiffs diff={diff} diff7d={diff7d} diff30d={diff30d} />
+        </Box>
+      </Box>
       <Grid container spacing={3}>
         {holdings &&
           holdings.map((holding: Holding) => {

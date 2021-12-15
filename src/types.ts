@@ -11,6 +11,9 @@ export type Token = {
     coingecko: string;
     price: {
       rate: number;
+      diff: number;
+      diff7d: number;
+      diff30d: number;
     };
   };
   balance: number;
@@ -23,4 +26,17 @@ export type Holding = {
   image: string;
   rate: number;
   value: number;
+  diff: number;
+  diff7d: number;
+  diff30d: number;
 };
+
+interface IObjectKeys {
+  [key: string]: number;
+}
+
+export interface Diffs extends IObjectKeys {
+  diff: number;
+  diff7d: number;
+  diff30d: number;
+}
