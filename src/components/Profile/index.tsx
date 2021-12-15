@@ -33,6 +33,7 @@ export default function Profile(props: Props) {
             diff: data.ETH.price.diff,
             diff7d: data.ETH.price.diff7d,
             diff30d: data.ETH.price.diff30d,
+            coingecko: data.ETH.price.coingecko,
           };
 
           const holdings =
@@ -45,6 +46,7 @@ export default function Profile(props: Props) {
                   symbol,
                   image,
                   decimals,
+                  coingecko,
                   price: { rate, diff, diff7d, diff30d },
                 } = token.tokenInfo;
 
@@ -60,6 +62,7 @@ export default function Profile(props: Props) {
                   diff,
                   diff7d,
                   diff30d,
+                  coingecko,
                 };
               });
 

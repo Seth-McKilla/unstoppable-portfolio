@@ -29,6 +29,7 @@ export type Holding = {
   diff: number;
   diff7d: number;
   diff30d: number;
+  coingecko: string;
 };
 
 interface IObjectKeys {
