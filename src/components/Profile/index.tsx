@@ -10,8 +10,7 @@ type Props = {
 
 export default function Profile(props: Props) {
   const { user } = props;
-  // const wallet_address = user?.wallet_address;
-  const wallet_address = user;
+  const wallet_address = user?.wallet_address;
 
   const [holdings, setHoldings] = useState<Holding[]>([]);
 
@@ -78,7 +77,7 @@ export default function Profile(props: Props) {
   const { diff, diff7d, diff30d } = holdings && calcOverallDiffs(holdings);
 
   return (
-    <Container sx={{ marginTop: 12 }}>
+    <Container sx={{ marginTop: 12, paddingBottom: 12 }}>
       <Typography variant="h3" align="center" gutterBottom>
         My Portfolio
       </Typography>

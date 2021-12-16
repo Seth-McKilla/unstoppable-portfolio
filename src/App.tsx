@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import uauth from "./uauth";
-import PerfectScrollbar from "react-perfect-scrollbar";
 import {
   AppBar,
   Box,
@@ -155,7 +154,7 @@ export default function App() {
           )}
         </Toolbar>
       </AppBar>
-      <PerfectScrollbar>{renderContent()}</PerfectScrollbar>
+      {renderContent()}
       <Footer />
     </>
   );
