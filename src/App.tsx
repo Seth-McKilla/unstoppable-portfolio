@@ -81,7 +81,13 @@ export default function App() {
     <>
       <AppBar>
         <Toolbar>
-          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ flexGrow: 1, height: 60 }}>
+            <img
+              src="/UP-logos_black.png"
+              alt="UP-logo"
+              style={{ height: "100%" }}
+            />
+          </Box>
           {user ? (
             <>
               <Button

@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Container } from "@mui/material";
+import { Typography, Container, Box } from "@mui/material";
 
 export default function Home() {
   return (
@@ -12,6 +12,13 @@ export default function Home() {
         alignItems: "center",
       }}
     >
+      <Box sx={{ height: 150 }}>
+        <img
+          src="/UP-logos_black.png"
+          alt="UP-logo"
+          style={{ height: "100%" }}
+        />
+      </Box>
       <Typography variant="h3" align="center">
         Welcome to the Unstoppable Portfolio
       </Typography>
