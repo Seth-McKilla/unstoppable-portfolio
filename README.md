@@ -1,46 +1,64 @@
-# Getting Started with Create React App
+# Welcome to the [Unstoppable Portfolio](https://unstoppable-portfolio.vercel.app/)!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://user-images.githubusercontent.com/63591760/146299375-982919cb-b72f-4017-b60b-8fc7352c5ee4.png)
 
-## Available Scripts
+### *A dead simple personal ERC-20 token portfolio powered by the Unstoppable Domains Login.*
 
-In the project directory, you can run:
+## Hackathon submission
+This project was created as a submission for the [Integrating “Login With Unstoppable” As A Dapp Login Option](https://gitcoin.co/issue/unstoppabledomains/gitcoin-bounties/1/100027208) bounty within Gitcoin's Grants Round 12 hackathon.
 
-### `npm start`
+## Motivation for the project
+It's a pain to manually create a watchlist of all your assets and many DeFi apps are very cumbersome and information overload. There's a need for an extremely lightweight and simple dApp that allows you to keep track of your current ERC-20 portfolio and its performance over various timeframes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Demo of the project
+Check out the Youtube video [here](https://www.youtube.com/watch?v=8GG8VAwuOaI)!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Contact info for questions
+**Discord: SethMcKilla#2242**
+<br>
+**Email: seth@endevrs.dev**
+<br>
+**Twitter: https://twitter.com/SethMcKilla**
+<br>
+**Gitcoin: https://gitcoin.co/seth-mckilla**
 
-### `npm test`
+## The tech stack
+NextJS: https://nextjs.org/
+<br>
+Typescript: https://www.typescriptlang.org/
+<br>
+Material UI: https://mui.com/
+<br>
+Unstoppable Domains (@uath/js): https://www.npmjs.com/package/@uauth/js
+<br>
+Ethplorer API: https://github.com/EverexIO/Ethplorer/wiki/Ethplorer-API
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Steps to setup locally
+1. Clone the repo and navigate into the directory:
+```
+git clone https://github.com/Seth-McKilla/unstoppable-portfolio.git
+cd unstoppable-portfolio
+```
 
-### `npm run build`
+2. Install the dependencies:
+```
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Create a .env file in the root folder and populate it with the following variables:
+```
+REACT_APP_UAUTH_CLIENT_ID=
+REACT_APP_UAUTH_CLIENT_SECRET=
+REACT_APP_UAUTH_REDIRECT_URI=
+REACT_APP_UAUTH_LOGOUT_REDIRECT_URI=
+REACT_APP_ETHPLORER_API_KEY=
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Run the local development environment:
+```
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. A browser window should automatically open to http://localhost:5000; if not, simply open one up and navigate to it manually.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Thanks for stopping by! 🙏
