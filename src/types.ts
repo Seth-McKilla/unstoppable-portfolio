@@ -1,6 +1,7 @@
 import { UserInfo } from "@uauth/js";
 
-export type User = UserInfo | undefined;
+// export type User = UserInfo | undefined;
+export type User = string;
 
 export type Token = {
   tokenInfo: {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Grid, Box } from "@mui/material";
+import { Typography, Grid, Box, Container } from "@mui/material";
 import type { User, Token, Holding } from "../../types";
 import { toUSD, calcOverallDiffs } from "../../utils";
 import { TokenHolding, PriceDiffs } from "..";
@@ -10,7 +10,8 @@ type Props = {
 
 export default function Profile(props: Props) {
   const { user } = props;
-  const wallet_address = user?.wallet_address;
+  // const wallet_address = user?.wallet_address;
+  const wallet_address = user;
 
   const [holdings, setHoldings] = useState<Holding[]>([]);
 
@@ -77,7 +78,7 @@ export default function Profile(props: Props) {
   const { diff, diff7d, diff30d } = holdings && calcOverallDiffs(holdings);
 
   return (
-    <>
+    <Container sx={{ marginTop: 12 }}>
       <Typography variant="h3" align="center" gutterBottom>
         My Portfolio
       </Typography>
@@ -107,6 +108,6 @@ export default function Profile(props: Props) {
             );
           })}
       </Grid>
-    </>
+    </Container>
   );
 }
