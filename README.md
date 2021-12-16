@@ -59,6 +59,6 @@ REACT_APP_ETHPLORER_API_KEY=
 npm start
 ```
 
-5. A browser window should automatically open to http://localhost:5000; if not, simply open one up and navigate to it manually.
+5. A browser window should automatically open to http://localhost:3000; if not, simply open one up and navigate to it manually.
 
 ### Thanks for stopping by! 🙏
