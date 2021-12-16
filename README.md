@@ -1,6 +1,6 @@
-# Welcome to the [Unstoppable Portfolio](https://unstoppable-portfolio.vercel.app/)!
+# Welcome to the [Unstoppable Portfolio](https://unstoppable-portfolio.vercel.app/)
 
-![image](https://user-images.githubusercontent.com/63591760/146299375-982919cb-b72f-4017-b60b-8fc7352c5ee4.png)
+![image](https://user-images.githubusercontent.com/63591760/146457077-642bb6d4-b3fd-4e77-b118-e0d61b8f6e95.png)
 
 ### *A dead simple personal ERC-20 token portfolio powered by the Unstoppable Domains Login.*
 
