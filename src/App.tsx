@@ -4,7 +4,6 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 import {
   AppBar,
   Box,
-  Container,
   Typography,
   Toolbar,
   Button,
@@ -25,29 +24,29 @@ export default function App() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   useEffect(() => {
-    // (async () => {
-    //   setLoading(true);
-    //   try {
-    //     const user = await uauth?.user();
-    //     setUser(user);
-    //   } catch (error: any) {
-    //     setError(error.message);
-    //   }
-    //   return setLoading(false);
-    // })();
+    (async () => {
+      setLoading(true);
+      try {
+        const user = await uauth?.user();
+        setUser(user);
+      } catch (error: any) {
+        setError(error.message);
+      }
+      return setLoading(false);
+    })();
   }, []);
 
   const handleLogin = async () => {
-    // setLoading(true);
-    // try {
-    //   await uauth?.loginWithPopup();
-    //   const user = await uauth?.user();
-    //   setUser(user);
-    // } catch (error: any) {
-    //   setError(error.message);
-    // }
-    // setLoading(false);
-    // return window.location.reload();
+    setLoading(true);
+    try {
+      await uauth?.loginWithPopup();
+      const user = await uauth?.user();
+      setUser(user);
+    } catch (error: any) {
+      setError(error.message);
+    }
+    setLoading(false);
+    return window.location.reload();
   };
 
   const handleLogout = async () => {
@@ -76,7 +75,7 @@ export default function App() {
       return <Profile user={user} />;
     }
 
-    return <Profile user="0x9C0177e8dDA1D562149F33B6Af8014228ca11E44" />;
+    return <Home />;
   };
 
   return (
@@ -113,8 +112,7 @@ export default function App() {
                   noWrap
                   ml={1}
                 >
-                  {/* {user.wallet_address} */}
-                  {user}
+                  {user.wallet_address}
                 </Typography>
                 <KeyboardArrowDownIcon />
               </Button>
